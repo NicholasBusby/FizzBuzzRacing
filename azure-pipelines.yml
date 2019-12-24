@@ -21,15 +21,15 @@ steps:
     npm install
     ng build --prod
   displayName: 'npm install and build'
-  - task: AzureRmWebAppDeployment@4
-    inputs:
-      ConnectionType: 'AzureRM'
-      azureSubscription: 'Visual Studio Premium with MSDN(1d3a1693-db2c-4afb-b91b-fc4f1154af42)'
-      appType: 'webAppLinux'
-      WebAppName: 'FizzBuzzRacingWeb'
-      deployToSlotOrASE: true
-      ResourceGroupName: 'FizzBuzzRacing'
-      SlotName: 'production'
-      packageForLinux: '$(System.DefaultWorkingDirectory)/**/*.zip'
-      RuntimeStack: 'NODE|12-lts'
-      StartupCommand: 'ng build --prod'
+- task: AzureRmWebAppDeployment@4
+  inputs:
+    ConnectionType: 'AzureRM'
+    azureSubscription: 'Visual Studio Premium with MSDN(1d3a1693-db2c-4afb-b91b-fc4f1154af42)'
+    appType: 'webAppLinux'
+    WebAppName: 'FizzBuzzRacingWeb'
+    deployToSlotOrASE: true
+    ResourceGroupName: 'FizzBuzzRacing'
+    SlotName: 'production'
+    packageForLinux: '$(System.DefaultWorkingDirectory)/**/*.zip'
+    RuntimeStack: 'NODE|12-lts'
+    StartupCommand: 'ng build --prod'
